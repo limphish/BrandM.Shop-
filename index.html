@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BrendM — Сумки с характером</title>
+    <meta name="description" content="BrendM — минималистичные сумки из натуральной кожи и текстиля.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #090909;
+            --black-soft: #111111;
+            --card: #151515;
+            --card-hover: #1a1a1a;
+            --accent: #deb29b;
+            --accent-light: #efd0bd;
+            --white: #f7f5f3;
+            --gray: #99938f;
+            --border: rgba(255,255,255,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: "Manrope", sans-serif;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(9, 9, 9, 0.82);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: 1280px;
+            margin: auto;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 14px;
+            color: #b9b5b2;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .nav-button {
+            padding: 10px 18px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 130px 30px 80px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: var(--accent);
+            opacity: 0.08;
+            filter: blur(180px);
+            border-radius: 50%;
+            right: -200px;
+            top: 80px;
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 70px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--accent);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(58px, 8vw, 110px);
+            line-height: 0.92;
+            letter-spacing: -5px;
+            max-width: 800px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text {
+            max-width: 550px;
+            margin-top: 35px;
+            color: var(--gray);
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        .button-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            border: 1px solid var(--border);
+            color: var(--white);
+        }
+
+        .button-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            height: 650px;
+            object-fit: cover;
+            border-radius: 3px;
+            filter: grayscale(15%);
+        }
+
+        .hero-image-card {
+            position: absolute;
+            bottom: 25px;
+            left: -35px;
+            background: rgba(15,15,15,0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            padding: 20px 24px;
+            min-width: 190px;
+        }
+
+        .hero-image-card small {
+            color: var(--gray);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-image-card strong {
+            display: block;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           CATALOG
+        ========================= */
+
+        .catalog {
+            max-width: 1280px;
+            margin: auto;
+            padding: 120px 30px;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1;
+            letter-spacing: -3px;
+        }
+
+        .section-description {
+            color: var(--gray);
+            max-width: 380px;
+            font-size: 14px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: var(--card);
+            border: 1px solid var(--border);
+            transition: 0.35s ease;
+            overflow: hidden;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            background: var(--card-hover);
+            border-color: rgba(222,178,155,0.25);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            aspect-ratio: 0.82;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .product:hover .product-image img {
+            transform: scale(1.04);
+        }
+
+        .product-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.65);
+            font-size: 11px;
+            color: #ccc;
+            backdrop-filter: blur(8px);
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 9px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .price {
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 12px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .characteristics {
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .characteristic {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 4px 0;
+            font-size: 11px;
+        }
+
+        .characteristic span:first-child {
+            color: #777;
+        }
+
+        .characteristic span:last-child {
+            color: #d0ccca;
+            text-align: right;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--black-soft);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .about-inner {
+            max-width: 1280px;
+            margin: auto;
+            padding: 120px 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: clamp(40px, 5vw, 68px);
+            line-height: 1;
+            letter-spacing: -3px;
+        }
+
+        .about h2 span {
+            color: var(--accent);
+        }
+
+        .about-text {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .about-text p + p {
+            margin-top: 20px;
+        }
+
+        /* =========================
+           CONTACTS
+        ========================= */
+
+        .contacts {
+            max-width: 1280px;
+            margin: auto;
+            padding: 120px 30px;
+        }
+
+        .contact-box {
+            border: 1px solid var(--border);
+            padding: 55px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: linear-gradient(
+                120deg,
+                #121212,
+                #0b0b0b
+            );
+        }
+
+        .contact-box h2 {
+            font-size: clamp(40px, 5vw, 70px);
+            line-height: 0.95;
+            letter-spacing: -3px;
+        }
+
+        .contact-box h2 span {
+            color: var(--accent);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-link {
+            border: 1px solid var(--border);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .contact-link small {
+            display: block;
+            color: #777;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .contact-link strong {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .arrow {
+            color: var(--accent);
+            font-size: 20px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                max-width: 600px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-inner,
+            .contact-box {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            .nav {
+                padding: 18px 20px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a:not(.nav-button) {
+                display: none;
+            }
+
+            .nav-button {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+                letter-spacing: -3px;
+            }
+
+            .hero-image img {
+                height: 450px;
+            }
+
+            .hero-image-card {
+                left: 15px;
+                bottom: 15px;
+            }
+
+            .catalog,
+            .contacts {
+                padding: 80px 20px;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .section-description {
+                margin-top: 20px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .about-inner {
+                padding: 80px 20px;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+    <div class="nav">
+
+        <a href="#" class="logo">
+            Brend<span>M</span>
+        </a>
+
+        <nav>
+            <a href="#catalog">Каталог</a>
+            <a href="#about">О бренде</a>
+            <a href="#contacts">Контакты</a>
+
+            <a
+                href="https://t.me/YOUR_CHANNEL"
+                target="_blank"
+                class="nav-button"
+            >
+                Telegram →
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <div>
+
+            <div class="hero-label">
+                👜 BrendM
+            </div>
+
+            <h1>
+                Сумки,<br>
+                которые<br>
+                <span>говорят.</span>
+            </h1>
+
+            <p class="hero-text">
+                Минималистичные модели на каждый день.
+                Натуральные материалы, продуманные детали
+                и характер, который не требует лишних слов.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#catalog" class="button button-primary">
+                    Смотреть каталог
+                </a>
+
+                <a
+                    href="https://t.me/YOUR_MANAGER"
+                    target="_blank"
+                    class="button button-outline"
+                >
+                    Написать менеджеру
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85"
+                alt="BrendM bag"
+            >
+
+            <div class="hero-image-card">
+                <small>New collection</small>
+                <strong>BRM — 01</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CATALOG
+========================= -->
+
+<section class="catalog" id="catalog">
+
+    <div class="section-head">
+
+        <div>
+            <div class="section-label">
+                Коллекция 2026
+            </div>
+
+            <h2 class="section-title">
+                Каталог
+            </h2>
+        </div>
+
+        <p class="section-description">
+            8 моделей BrendM — от компактных
+            повседневных сумок до вместительных
+            моделей для города.
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 01 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">01</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Satchel Caramel"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Satchel Caramel
+                    </h3>
+
+                    <span class="price">
+                        14 900 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Элегантная повседневная модель
+                    с чистыми линиями и мягким силуэтом.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Натуральная кожа, текстиль</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Сэтчел</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Карамельный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ремешок</span>
+                        <span>Несъемный, регулируемый</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>28 × 20 × 10 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 02 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">02</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Mini Black"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Mini Black
+                    </h3>
+
+                    <span class="price">
+                        11 900 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Компактная сумка для тех случаев,
+                    когда нужно взять только самое важное.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Натуральная кожа</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Мини-бэг</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Черный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ремешок</span>
+                        <span>Съемный, регулируемый</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>20 × 14 × 7 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 03 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">03</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Soft Brown"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Soft Brown
+                    </h3>
+
+                    <span class="price">
+                        13 500 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Мягкая форма и спокойный оттенок
+                    для повседневных образов.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Натуральная кожа</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Hobo</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Шоколадный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ремешок</span>
+                        <span>Несъемный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>31 × 23 × 11 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 04 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">04</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Shoulder"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Shoulder 01
+                    </h3>
+
+                    <span class="price">
+                        12 900 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Лаконичная модель через плечо
+                    с акцентом на форму и детали.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Натуральная кожа</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Shoulder bag</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Черный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ремешок</span>
+                        <span>Регулируемый</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>25 × 18 × 8 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 05 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">05</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Tote"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Tote Daily
+                    </h3>
+
+                    <span class="price">
+                        15 900 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Вместительная модель для работы,
+                    учебы и насыщенного городского дня.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Кожа, текстиль</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Tote</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Молочный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ручки</span>
+                        <span>Двойные</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>38 × 28 × 12 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 06 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">06</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1585488433703-20c48d0b1c1c?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Crossbody"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Crossbody
+                    </h3>
+
+                    <span class="price">
+                        10 900 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Минималистичная crossbody-сумка
+                    для прогулок и путешествий.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Натуральная кожа</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Crossbody</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Графит</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ремешок</span>
+                        <span>Съемный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>23 × 16 × 6 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 07 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">07</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Classic"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Classic
+                    </h3>
+
+                    <span class="price">
+                        14 500 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Универсальная классическая модель
+                    с выразительной геометрией.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Натуральная кожа</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Сэтчел</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Карамельный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ремешок</span>
+                        <span>Регулируемый</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>30 × 21 × 10 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCT 08 -->
+
+        <article class="product">
+
+            <div class="product-image">
+
+                <span class="product-number">08</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1588032890197-2f9d4c0f4e48?auto=format&fit=crop&w=700&q=80"
+                    alt="BrendM Mini Beige"
+                    loading="lazy"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-top">
+                    <h3 class="product-name">
+                        Mini Beige
+                    </h3>
+
+                    <span class="price">
+                        11 500 ₽
+                    </span>
+                </div>
+
+                <p class="product-description">
+                    Небольшая сумка в мягком бежевом
+                    оттенке — легкая и универсальная.
+                </p>
+
+                <div class="characteristics">
+
+                    <div class="characteristic">
+                        <span>Материал</span>
+                        <span>Кожа, текстиль</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Модель</span>
+                        <span>Mini bag</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Цвет</span>
+                        <span>Бежевый</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Фурнитура</span>
+                        <span>Серебро</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Ремешок</span>
+                        <span>Съемный</span>
+                    </div>
+
+                    <div class="characteristic">
+                        <span>Размер</span>
+                        <span>21 × 15 × 7 см</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="about-inner">
+
+        <div>
+
+            <div class="section-label">
+                BrendM
+            </div>
+
+            <h2>
+                Меньше<br>
+                шума.<br>
+                <span>Больше стиля.</span>
+            </h2>
+
+        </div>
+
+        <div class="about-text">
+
+            <p>
+                BrendM — бренд сумок для тех, кто ценит
+                простые формы, качественные материалы
+                и вещи, которые остаются актуальными
+                дольше одного сезона.
+            </p>
+
+            <p>
+                Мы не перегружаем дизайн.
+                Каждая модель создается вокруг формы,
+                удобства и деталей, которые хочется
+                рассматривать.
+            </p>
+
+            <p>
+                👜 Выбирай свою модель и пиши нам —
+                поможем подобрать сумку, цвет и размер.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACTS
+========================= -->
+
+<section class="contacts" id="contacts">
+
+    <div class="contact-box">
+
+        <div>
+
+            <div class="section-label">
+                Связаться
+            </div>
+
+            <h2>
+                Есть<br>
+                <span>вопрос?</span>
+            </h2>
+
+        </div>
+
+
+        <div class="contact-links">
+
+
+            <!-- TELEGRAM CHANNEL -->
+
+            <a
+                href="https://t.me/YOUR_CHANNEL"
+                target="_blank"
+                class="contact-link"
+            >
+
+                <div>
+                    <small>Наш Telegram</small>
+                    <strong>@YOUR_CHANNEL</strong>
+                </div>
+
+                <span class="arrow">↗</span>
+
+            </a>
+
+
+            <!-- MANAGER -->
+
+            <a
+                href="https://t.me/YOUR_MANAGER"
+                target="_blank"
+                class="contact-link"
+            >
+
+                <div>
+                    <small>Менеджер</small>
+                    <strong>Написать в Telegram</strong>
+                </div>
+
+                <span class="arrow">↗</span>
+
+            </a>
+
+
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:hello@brendm.ru"
+                class="contact-link"
+            >
+
+                <div>
+                    <small>Email</small>
+                    <strong>hello@brendm.ru</strong>
+                </div>
+
+                <span class="arrow">↗</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-logo">
+            Brend<span>M</span>
+        </div>
+
+        <div>
+            © 2026 BrendM. Все права защищены.
+        </div>
+
+        <div>
+            👜 Made with style
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
